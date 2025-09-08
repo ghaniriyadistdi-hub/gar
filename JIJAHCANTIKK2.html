@@ -3,16 +3,66 @@
 <head>
   <meta charset="utf-8">
   <title>Makasih Udah Maafin Aku ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       text-align: center;
       background: #fff0f6;
       font-family: Arial, sans-serif;
-      padding: 50px;
+      padding: 30px;
+      overflow: hidden; /* biar love ga bikin scroll */
     }
-    h1 { color:#d6336c; margin-bottom: 20px; }
-    p { font-size:18px; color:#444; margin: 15px auto; max-width: 500px; }
-    img { max-width: 250px; border-radius: 20px; margin-top:20px; }
+    h1 { 
+      color:#d6336c; 
+      margin-bottom: 20px; 
+      font-size: 2.2em;   
+    }
+    p { 
+      font-size: 1.2em;   
+      color:#444; 
+      margin: 15px auto; 
+      max-width: 500px; 
+      line-height: 1.6;   
+    }
+    img { 
+      max-width: 300px;   
+      width: 100%;        
+      border-radius: 20px; 
+      margin-top:20px; 
+    }
+
+    /* aturan khusus untuk layar kecil (HP) */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2.6em;   
+      }
+      p {
+        font-size: 1.4em;   
+      }
+      img {
+        max-width: 90%;     
+      }
+    }
+
+    /* gaya untuk love */
+    .love {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: fall 5s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -21,12 +71,12 @@
     OKEYY MAKASI YH UDAH MAAFIN AKUU,  
     BSK" AKU BAKALAN LEBIH BAIK LAGI SAYANG,  
     TRS JAWAB CHATNYA GA LAMA LGI BIAR KMU GA BETMUT.  
-    LOVE UU SAYANGG ❤️ foto kmunya di pencet dong
+    LOVE UU SAYANGG ❤️ foto kmunya di pencet dong nanti ada lagunya
   </p>
   <img src="jijah.jpg" alt="cantikuu">
 
   <!-- musik offline -->
-    <audio id="lagu" src="love_looks_pretty_on_you.mp3" loop></audio>
+  <audio id="lagu" src="love_looks_pretty_on_you.mp3" loop></audio>
 
   <script>
     const lagu = document.getElementById("lagu");
@@ -34,12 +84,31 @@
     // coba autoplay langsung
     window.addEventListener("load", () => {
       lagu.play().catch(() => {
-        // kalau autoplay diblokir, tunggu klik user sekali
         document.body.addEventListener("click", () => {
           lagu.play();
         }, { once: true });
       });
     });
+
+    // bikin love jatuh terus-menerus
+    function createLove() {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      love.innerText = "❤️";
+
+      // posisi random di layar
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.fontSize = Math.random() * 20 + 20 + "px";
+
+      document.body.appendChild(love);
+
+      // hapus setelah animasi selesai
+      setTimeout(() => {
+        love.remove();
+      }, 5000);
+    }
+
+    setInterval(createLove, 500); // tiap 0.5 detik keluar 1 love
   </script>
 </body>
 </html>
