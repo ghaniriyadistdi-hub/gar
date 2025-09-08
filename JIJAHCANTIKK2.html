@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Makasih Udah Maafin Aku ❤️</title>
+  <style>
+    body {
+      text-align: center;
+      background: #fff0f6;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+    h1 { color:#d6336c; margin-bottom: 20px; }
+    p { font-size:18px; color:#444; margin: 15px auto; max-width: 500px; }
+    img { max-width: 250px; border-radius: 20px; margin-top:20px; }
+  </style>
+</head>
+<body>
+  <h1>Aku Sayang Banget Sama Kamu 😘</h1>
+  <p>
+    OKEYY MAKASI YH UDAH MAAFIN AKUU,  
+    BSK" AKU BAKALAN LEBIH BAIK LAGI SAYANG,  
+    TRS JAWAB CHATNYA GA LAMA LGI BIAR KMU GA BETMUT.  
+    LOVE UU SAYANGG ❤️ foto kmunya di pencet dong
+  </p>
+  <img src="jijah.jpg" alt="cantikuu">
+
+  <!-- musik offline -->
+    <audio id="lagu" src="love_looks_pretty_on_you.mp3" loop></audio>
+
+  <script>
+    const lagu = document.getElementById("lagu");
+
+    // coba autoplay langsung
+    window.addEventListener("load", () => {
+      lagu.play().catch(() => {
+        // kalau autoplay diblokir, tunggu klik user sekali
+        document.body.addEventListener("click", () => {
+          lagu.play();
+        }, { once: true });
+      });
+    });
+  </script>
+</body>
+</html>
