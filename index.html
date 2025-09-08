@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Maafin Aku ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; background: #ffeef3; margin:0;
+    }
+    .box {
+      background: white; padding: 30px; border-radius: 20px;
+      text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.1);
+      width: 340px;
+    }
+    h2 { margin-bottom: 15px; color:#d6336c; }
+    p { color:#444; margin:10px 0; }
+    button {
+      padding: 10px 18px; border: none; border-radius: 10px;
+      margin: 8px; font-size: 16px; cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .yes { background: #ff4d6d; color: white; }
+    .no  { background: #ffe0e8; color: #b21f44; position: relative; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>JIJAH CANTIK MAAFIN AKU DONG</h2>
+    <p>Maafin aku ya sayang tdi malem bikin kmu marah trs betmut jg gr" aku jawabnya lama, maafin ya sayang</p>
+
+    <div>
+      <button class="yes" onclick="jawab(true)">Yes</button>
+      <button class="no" id="btnNo">No</button>
+    </div>
+  </div>
+
+  <script>
+    const btnNo = document.getElementById('btnNo');
+
+    function jawab(yes) {
+      if (yes) {
+        window.location.href = "JIJAHCANTIKK2.html"; // pindah ke halaman 2
+      }
+    }
+
+    function kabur() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btnNo.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    btnNo.addEventListener('mouseover', kabur);   // PC
+    btnNo.addEventListener('touchstart', e => {   // HP
+      e.preventDefault();
+      kabur();
+    });
+    btnNo.addEventListener('click', e => {
+      e.preventDefault();
+      kabur();
+    });
+  </script>
+</body>
+</html>
